@@ -8,7 +8,7 @@ public class SaleOrder implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@javax.persistence.GeneratedValue(generator = "SALEORDER_ID_GENERATOR", strategy = javax.persistence.GenerationType.AUTO)
+	@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "SALEORDER_ID_GENERATOR")
 	@javax.persistence.Id
 	@javax.persistence.SequenceGenerator(name = "SALEORDER_ID_GENERATOR", sequenceName = "SALEORDER_ID_SEQ")
 	@org.kie.api.definition.type.Label("address_id")
@@ -18,7 +18,7 @@ public class SaleOrder implements java.io.Serializable {
 	private java.lang.String payment_mode;
 
 	@org.kie.api.definition.type.Label("user_id")
-	private int user_id;
+	private String user_id;
 
 	@org.kie.api.definition.type.Label("msfa2_id")
 	private int msfa2_id;
@@ -59,14 +59,6 @@ public class SaleOrder implements java.io.Serializable {
 
 	public void setPayment_mode(java.lang.String payment_mode) {
 		this.payment_mode = payment_mode;
-	}
-
-	public int getUser_id() {
-		return this.user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
 	}
 
 	public int getMsfa2_id() {
@@ -126,10 +118,18 @@ public class SaleOrder implements java.io.Serializable {
 		this.order_items = order_items;
 	}
 
+	public java.lang.String getUser_id() {
+		return this.user_id;
+	}
+
+	public void setUser_id(java.lang.String user_id) {
+		this.user_id = user_id;
+	}
+
 	public SaleOrder(
 			int address_id,
 			java.lang.String payment_mode,
-			int user_id,
+			java.lang.String user_id,
 			int msfa2_id,
 			java.lang.String transaction_id,
 			int route,
